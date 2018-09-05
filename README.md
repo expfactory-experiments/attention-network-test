@@ -12,9 +12,9 @@ There's an associated **alpha** `R` package for processing the data.
 You can test locally, just as the continuous integration does!
 
 ```
-git clone https://www.github.com/expfactory-experiments/attention-network-task
-cd attention-network-task
-$ docker run -v $PWD/expfactory.attentionnetworktask:/data expfactory/expfactoryr test
+git clone https://www.github.com/expfactory-experiments/attention-network-test
+cd attention-network-test
+$ docker run -v $PWD/expfactory.attentionnetworktest:/data expfactory/expfactoryr test
 ...
 ```
 
@@ -22,7 +22,7 @@ $ docker run -v $PWD/expfactory.attentionnetworktask:/data expfactory/expfactory
 
 ```
 library(devtools)
-install_github('expfactory-experiments/attention-network-task/expfactory.attentionnetworktest')
+install_github('expfactory-experiments/attention-network-test/expfactory.attentionnetworktest')
 ```
 
 

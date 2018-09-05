@@ -243,7 +243,7 @@ var end_block = {
 	cont_key: ['c'],
 	data: {
 		trial_id: "end",
-    	exp_id: 'attention_network_task_2'
+    	exp_id: 'attention_network_test'
 	},
 	timing_response: 180000,
 	timing_post_trial: 0,
@@ -387,8 +387,8 @@ var double_cue = {
 }
 
 /* set up ANT experiment */
-var attention_network_task_experiment = [];
-attention_network_task_experiment.push(instruction_node);
+var attention_network_test_experiment = [];
+attention_network_test_experiment.push(instruction_node);
 
 /* set up ANT practice */
 if (Practise == 1) {
@@ -411,14 +411,14 @@ if (Practise == 1) {
 			timing_stim: first_fixation_gap,
 			timing_response: first_fixation_gap
 		}
-		attention_network_task_experiment.push(first_fixation)
+		attention_network_test_experiment.push(first_fixation)
 
 		if (block.data[i].cue == 'nocue') {
-			attention_network_task_experiment.push(no_cue)
+			attention_network_test_experiment.push(no_cue)
 		} else if (block.data[i].cue == 'center') {
-			attention_network_task_experiment.push(center_cue)
+			attention_network_test_experiment.push(center_cue)
 		} else if (block.data[i].cue == 'double') {
-			attention_network_task_experiment.push(double_cue)
+			attention_network_test_experiment.push(double_cue)
 		} else {
 			var spatial_cue = {
 				type: 'poldrack-single-stim',
@@ -435,13 +435,13 @@ if (Practise == 1) {
 				timing_stim: 100,
 				timing_response: 100
 			}
-			attention_network_task_experiment.push(spatial_cue)
+			attention_network_test_experiment.push(spatial_cue)
 		}
 
-		attention_network_task_experiment.push(fixation)
+		attention_network_test_experiment.push(fixation)
 
 		block.data[i].trial_num = trial_num
-		var attention_network_task_practice_trial = {
+		var attention_network_test_practice_trial = {
 			type: 'poldrack-categorize',
 			stimulus: block.stimulus[i],
 			is_html: true,
@@ -464,7 +464,7 @@ if (Practise == 1) {
 			}
 		}
 
-		attention_network_task_experiment.push(attention_network_task_practice_trial)
+		attention_network_test_experiment.push(attention_network_test_practice_trial)
 
 		var last_fixation = {
 			type: 'poldrack-single-stim',
@@ -480,11 +480,11 @@ if (Practise == 1) {
 			timing_stim: post_trial_gap,
 			timing_response: post_trial_gap,
 		}
-		attention_network_task_experiment.push(last_fixation)
+		attention_network_test_experiment.push(last_fixation)
 	}
-	attention_network_task_experiment.push(rest_block)
+	attention_network_test_experiment.push(rest_block)
 }
-attention_network_task_experiment.push(test_intro_block);
+attention_network_test_experiment.push(test_intro_block);
 
 
 /* Set up ANT main task */
@@ -508,14 +508,14 @@ for (b = 0; b < blocks.length; b++) {
 			timing_stim: first_fixation_gap,
 			timing_response: first_fixation_gap
 		}
-		attention_network_task_experiment.push(first_fixation)
+		attention_network_test_experiment.push(first_fixation)
 
 		if (block.data[i].cue == 'nocue') {
-			attention_network_task_experiment.push(no_cue)
+			attention_network_test_experiment.push(no_cue)
 		} else if (block.data[i].cue == 'center') {
-			attention_network_task_experiment.push(center_cue)
+			attention_network_test_experiment.push(center_cue)
 		} else if (block.data[i].cue == 'double') {
-			attention_network_task_experiment.push(double_cue)
+			attention_network_test_experiment.push(double_cue)
 		} else {
 			var spatial_cue = {
 				type: 'poldrack-single-stim',
@@ -532,9 +532,9 @@ for (b = 0; b < blocks.length; b++) {
 				timing_stim: 100,
 				timing_response: 100
 			}
-			attention_network_task_experiment.push(spatial_cue)
+			attention_network_test_experiment.push(spatial_cue)
 		}
-		attention_network_task_experiment.push(fixation)
+		attention_network_test_experiment.push(fixation)
 
 		block.data[i].trial_num = trial_num
 		var ANT_trial = {
@@ -555,7 +555,7 @@ for (b = 0; b < blocks.length; b++) {
 				})
 			}
 		}
-		attention_network_task_experiment.push(ANT_trial)
+		attention_network_test_experiment.push(ANT_trial)
 
 		var last_fixation = {
 			type: 'poldrack-single-stim',
@@ -571,13 +571,13 @@ for (b = 0; b < blocks.length; b++) {
 			timing_stim: post_trial_gap,
 			timing_response: post_trial_gap,
 		}
-		attention_network_task_experiment.push(last_fixation)
+		attention_network_test_experiment.push(last_fixation)
 	}
-	attention_network_task_experiment.push(attention_node)
+	attention_network_test_experiment.push(attention_node)
 	if (b < (blocks.length - 1)) // no rest after final block
-		attention_network_task_experiment.push(rest_block)
+		attention_network_test_experiment.push(rest_block)
 }
 if (PostTask == 1)
-	attention_network_task_experiment.push(post_task_block)
+	attention_network_test_experiment.push(post_task_block)
 if (Lab == 1)
-	attention_network_task_experiment.push(end_block)
+	attention_network_test_experiment.push(end_block)

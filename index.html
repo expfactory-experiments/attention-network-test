@@ -2,7 +2,7 @@
 <head>
     <meta charset='UTF-8'>
     <meta name="robots" content="noindex">
-    <title>The Experiment Factory: Attention Network Task</title>
+    <title>The Experiment Factory: Attention Network Test</title>
     
 <link rel='stylesheet' type='text/css' href='jspsych.css'>
 <link rel='stylesheet' type='text/css' href='default_style.css'>
@@ -47,7 +47,7 @@ $(document).ready(function() {
         timeline.push(block);
         fullscreen = false;
     } else {
-        timeline = attention_network_task_experiment;
+        timeline = attention_network_test_experiment;
         fullscreen = true;
     }
 
@@ -56,7 +56,7 @@ $(document).ready(function() {
              display_element: "getDisplayElement",
              fullscreen: fullscreen,
              on_trial_finish: function(data){
-               addID('attention-network-task')
+               addID('attention-network-test')
              },
              on_finish: function(data){
                  // Serialize the data
@@ -80,7 +80,7 @@ $(document).ready(function() {
                              } else {
                                  // if error, assume local save
                                 if (Skip == 0) {
-                                    jsPsych.data.localSave('attention-network-task-no-feedback_results.json', 'json');
+                                    jsPsych.data.localSave('attention-network-test_results.json', 'json');
                                 }
                             }
                          }
